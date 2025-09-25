@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shot Caller Nak Muay 2.0</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Orbitron:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="glow-overlay"></div>
+    <header class="nav">
+      <div class="nav__brand">
+        <span class="nav__logo">🥊</span>
+        <span>Shot Caller Nak Muay</span>
+      </div>
+      <nav class="nav__links">
+        <a href="#generator">Shot Caller</a>
+        <a href="#timer">Round Timer</a>
+        <a href="#planner">Session Planner</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="nav__cta" id="download-app">Get the App</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__content">
+          <p class="hero__badge">Muay Thai • Kickboxing • MMA</p>
+          <h1>
+            Command electrifying fight camps with the
+            <span>smartest striker coach</span>
+          </h1>
+          <p class="hero__subtitle">
+            Build world-class striking instincts with adaptive combinations,
+            neon-infused visuals, and cinematic soundscapes. Designed for pros,
+            perfect for anyone hungry to level up.
+          </p>
+          <div class="hero__actions">
+            <button class="btn btn--primary" id="cta-generator">
+              Generate Combos
+            </button>
+            <button class="btn btn--ghost" id="cta-tour">
+              Watch Feature Tour
+            </button>
+          </div>
+          <div class="hero__stats">
+            <article>
+              <h3>42k</h3>
+              <p>Rounds simulated</p>
+            </article>
+            <article>
+              <h3>97%</h3>
+              <p>Fighter satisfaction</p>
+            </article>
+            <article>
+              <h3>1.5M</h3>
+              <p>Combos delivered</p>
+            </article>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="holo-card">
+            <div class="holo-card__grid">
+              <div>
+                <h3>Focus</h3>
+                <p>Southpaw Chaos</p>
+              </div>
+              <div>
+                <h3>Difficulty</h3>
+                <p>Elite</p>
+              </div>
+              <div>
+                <h3>Tempo</h3>
+                <p>180 BPM</p>
+              </div>
+              <div>
+                <h3>Energy</h3>
+                <p>88%</p>
+              </div>
+            </div>
+            <div class="holo-card__cta">Live Round Tracking</div>
+          </div>
+          <div class="hero__globe">
+            <canvas id="hero-globe"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="generator">
+        <div class="panel__header">
+          <div>
+            <p class="panel__eyebrow">Intelligent Fight Architect</p>
+            <h2>Dynamic Combination Generator</h2>
+            <p>
+              Customize your session, shuffle combos on the fly, and let the
+              in-app voice coach do the talking. We fused Muay Thai grit with
+              cyberpunk aesthetics to keep you in flow state.
+            </p>
+          </div>
+          <div class="panel__tabs" role="tablist">
+            <button class="panel__tab panel__tab--active" data-level="all">
+              All Levels
+            </button>
+            <button class="panel__tab" data-level="beginner">Beginner</button>
+            <button class="panel__tab" data-level="intermediate">
+              Intermediate
+            </button>
+            <button class="panel__tab" data-level="advanced">Advanced</button>
+          </div>
+        </div>
+
+        <div class="generator">
+          <div class="generator__form">
+            <label for="style">Training Style</label>
+            <select id="style">
+              <option value="muay-thai">Muay Thai Hybrid</option>
+              <option value="kickboxing">Dutch Kickboxing</option>
+              <option value="mma">MMA Striking</option>
+            </select>
+
+            <label for="focus">Focus Attribute</label>
+            <div class="chip-group" id="focus">
+              <button data-focus="power" class="chip chip--active">Power</button>
+              <button data-focus="speed" class="chip">Speed</button>
+              <button data-focus="technique" class="chip">Technique</button>
+              <button data-focus="elbows">Elbows &amp; Knees</button>
+              <button data-focus="defense">Defense &amp; Counters</button>
+            </div>
+
+            <label for="rounds">Rounds</label>
+            <input type="range" id="rounds" min="1" max="10" value="5" />
+            <div class="range-output"><span id="rounds-value">5</span> rounds</div>
+
+            <label class="toggle">
+              <input type="checkbox" id="include-conditioning" checked />
+              <span class="toggle__slider"></span>
+              <span class="toggle__label">Include finisher conditioning</span>
+            </label>
+
+            <button class="btn btn--primary btn--wide" id="generate-combo">
+              Deploy New Combo
+            </button>
+          </div>
+
+          <div class="generator__output">
+            <div class="holo-output">
+              <h3>Combo Loadout</h3>
+              <p id="combo-sequence" class="holo-output__combo">
+                1. Jab → Cross → Lead Hook → Rear Kick
+              </p>
+              <div class="holo-output__meta">
+                <div>
+                  <p class="meta__label">Difficulty</p>
+                  <p id="combo-difficulty">Intermediate</p>
+                </div>
+                <div>
+                  <p class="meta__label">Tempo</p>
+                  <p id="combo-tempo">75% Intensity</p>
+                </div>
+                <div>
+                  <p class="meta__label">Finisher</p>
+                  <p id="combo-finisher">20 Burpee Knees</p>
+                </div>
+              </div>
+              <div class="holo-output__actions">
+                <button class="btn btn--ghost" id="speak-combo">Play Voice Cue</button>
+                <button class="btn btn--outline" id="save-combo">Add to Playlist</button>
+              </div>
+            </div>
+
+            <div class="playlist" aria-live="polite">
+              <h4>Saved Playlist</h4>
+              <ul id="playlist"></ul>
+              <button class="btn btn--subtle" id="clear-playlist">
+                Clear Playlist
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="timer">
+        <div class="panel__header">
+          <div>
+            <p class="panel__eyebrow">Battle Rhythm Engine</p>
+            <h2>Precision Round Timer</h2>
+            <p>
+              Dial in custom rounds with adaptive rest, hype visual cues, and
+              real-time energy tracking. Built for fighters who demand more than
+              a stopwatch.
+            </p>
+          </div>
+        </div>
+
+        <div class="timer">
+          <div class="timer__controls">
+            <div class="timer__group">
+              <label for="round-length">Round Length (sec)</label>
+              <input type="number" id="round-length" value="180" min="30" max="600" />
+            </div>
+            <div class="timer__group">
+              <label for="rest-length">Rest (sec)</label>
+              <input type="number" id="rest-length" value="45" min="10" max="180" />
+            </div>
+            <div class="timer__group">
+              <label for="total-rounds">Total Rounds</label>
+              <input type="number" id="total-rounds" value="5" min="1" max="12" />
+            </div>
+            <div class="timer__group">
+              <label for="intensity">Intensity</label>
+              <select id="intensity">
+                <option value="steady">Steady Flow</option>
+                <option value="surge">Surge Bursts</option>
+                <option value="endurance">Endurance Grind</option>
+              </select>
+            </div>
+            <button class="btn btn--primary" id="start-timer">Initiate Round</button>
+            <button class="btn btn--ghost" id="reset-timer">Reset</button>
+          </div>
+
+          <div class="timer__display">
+            <div class="timer__phase" id="timer-phase">Standby</div>
+            <div class="timer__clock" id="timer-clock">03:00</div>
+            <div class="timer__progress">
+              <div class="timer__progress-bar" id="timer-progress"></div>
+            </div>
+            <div class="timer__rounds" id="timer-rounds">Round 0 / 5</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="planner">
+        <div class="panel__header">
+          <div>
+            <p class="panel__eyebrow">Neural Fight Camp</p>
+            <h2>Session Architect</h2>
+            <p>
+              Instantly structure pro-grade sessions. Drag new blocks into your
+              camp timeline, toggle intensity, and sync to your wearables.
+            </p>
+          </div>
+          <button class="btn btn--outline" id="export-plan">Export to Device</button>
+        </div>
+
+        <div class="planner">
+          <div class="planner__day">
+            <h3>Warm-Up Sequence</h3>
+            <ul>
+              <li>
+                <span>Neuromuscular activation</span>
+                <span>6 min</span>
+              </li>
+              <li>
+                <span>Dynamic mobility flow</span>
+                <span>8 min</span>
+              </li>
+              <li>
+                <span>Footwork primer</span>
+                <span>5 min</span>
+              </li>
+            </ul>
+          </div>
+          <div class="planner__day">
+            <h3>Technical Arsenal</h3>
+            <ul>
+              <li>
+                <span>Southpaw trap series</span>
+                <span>3 rounds</span>
+              </li>
+              <li>
+                <span>Knee shield to dump</span>
+                <span>2 rounds</span>
+              </li>
+              <li>
+                <span>Clinch hand fighting</span>
+                <span>5 min</span>
+              </li>
+            </ul>
+          </div>
+          <div class="planner__day planner__day--highlight">
+            <h3>Engine Room</h3>
+            <ul>
+              <li>
+                <span>Assault bike sprints</span>
+                <span>Tabata</span>
+              </li>
+              <li>
+                <span>Heavy bag chaos rounds</span>
+                <span>6 x 90s</span>
+              </li>
+              <li>
+                <span>Plyometric finisher</span>
+                <span>12 min</span>
+              </li>
+            </ul>
+          </div>
+          <div class="planner__day">
+            <h3>Recovery Protocol</h3>
+            <ul>
+              <li>
+                <span>Breath reset + HRV</span>
+                <span>5 min</span>
+              </li>
+              <li>
+                <span>Contrast therapy</span>
+                <span>12 min</span>
+              </li>
+              <li>
+                <span>Mindset visualization</span>
+                <span>8 min</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--dark" id="faq">
+        <div class="panel__header">
+          <div>
+            <p class="panel__eyebrow">Intel Brief</p>
+            <h2>FAQ</h2>
+            <p>
+              Quick hits on what makes Shot Caller Nak Muay the most electrified
+              striker platform in the game.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details open>
+            <summary>Can I sync this with my Bluetooth speaker?</summary>
+            <p>
+              Absolutely. Voice cues, impact sounds, and tempo signals route
+              seamlessly to external audio so you can train loud.
+            </p>
+          </details>
+          <details>
+            <summary>Does it support southpaw vs orthodox switching?</summary>
+            <p>
+              The combo engine tracks stance changes and mirrors patterns so you
+              can drill both sides without missing a beat.
+            </p>
+          </details>
+          <details>
+            <summary>How does the playlist feature work?</summary>
+            <p>
+              Save your favorite combos mid-session. Export them for shadowboxing,
+              bag work, or sparring scripts and the timer will auto-sync.
+            </p>
+          </details>
+          <details>
+            <summary>Is there a coach mode?</summary>
+            <p>
+              Yup! Activate coach mode to project combos on a big screen while the
+              companion app beams cues to fighters via haptics.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__brand">Shot Caller Nak Muay</div>
+      <div class="footer__links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+      </div>
+      <p class="footer__copy">Built for warriors chasing the neon edge.</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="scripts/main.js" type="module"></script>
+  </body>
+</html>
