@@ -1,6 +1,6 @@
 # Bagwork Buddy App
 
-A sleek single-page experience that reimagines the Shot Caller Nak Muay website as an app-first interface inspired by the premium Equinox+ design language, now rebranded as Bagwork Buddy. Built with semantic HTML, modern CSS, and lightweight JavaScript interactions so it runs without a build step.
+A sleek single-page experience that reimagines the Shot Caller Nak Muay website as an app-first interface with a premium training club aesthetic, now rebranded as Bagwork Buddy. Built with semantic HTML, modern CSS, and lightweight JavaScript interactions so it runs without a build step.
 
 ## Getting started
 
@@ -22,6 +22,7 @@ Then visit [http://localhost:4173](http://localhost:4173).
 - Membership pricing grid with tiered call-to-action buttons
 - Download section with tablet mockup and progress visualization
 - Auto-playing testimonial carousel with manual controls
-- Dark, polished visual system channeling the Equinox+ aesthetic
+- Dark, polished visual system shaped by boutique gym inspiration
 - Custom Training Lab with selectable combinations, techniques, and smart round pacing
 - Signature style libraries for legendary fighters with auto-loaded drills and coaching notes
+- Save your own signature styles with custom move selections and coaching cues

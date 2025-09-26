@@ -298,6 +298,69 @@ if (trainingLab) {
       category: 'Clinch Volume',
       description: 'Chain short elbows and knees before resetting distance.',
     },
+    {
+      id: 'ploy-angle-kick-finish',
+      name: 'Southpaw Jab → Cross → Pivot Step → Left Body Kick',
+      sequence: ['Southpaw Jab', 'Cross', 'Pivot Step', 'Left Body Kick'],
+      category: 'Southpaw Control',
+      description: 'Steal the outside line then whip the left kick through the ribs.',
+    },
+    {
+      id: 'ploy-frame-elbow',
+      name: 'Lead Teep → Long Guard → Horizontal Elbow',
+      sequence: ['Lead Teep', 'Long Guard', 'Horizontal Elbow'],
+      category: 'Frame & Fire',
+      description: 'Freeze the guard with a frame before stepping through with the elbow.',
+    },
+    {
+      id: 'ploy-clinch-knee',
+      name: 'Southpaw Jab → Rear Hook → Clinch Entry → Rear Knee',
+      sequence: ['Southpaw Jab', 'Rear Hook', 'Clinch Entry', 'Rear Knee'],
+      category: 'Clinch Punish',
+      description: 'Box your way in then feed a knee straight up the middle.',
+    },
+    {
+      id: 'marcus-breath-flow',
+      name: 'Lead Teep → Rear Teep → Breath Reset',
+      sequence: ['Lead Teep', 'Rear Teep', 'Breath Reset'],
+      category: 'Breathwork Flow',
+      description: 'Control tempo with alternating teeps before settling into your breath.',
+    },
+    {
+      id: 'marcus-shield-return',
+      name: 'Long Guard → Breath Reset → Cross',
+      sequence: ['Long Guard', 'Breath Reset', 'Cross'],
+      category: 'Shield & Return',
+      description: 'Frame the guard, re-center, then snap a sharp cross down the pipe.',
+    },
+    {
+      id: 'marcus-slow-burn',
+      name: 'Tempo Step → Jab → Cross → Breath Reset',
+      sequence: ['Tempo Step', 'Jab', 'Cross', 'Breath Reset'],
+      category: 'Pace Control',
+      description: 'Step with intention, strike, then extend the exhale to stay composed.',
+    },
+    {
+      id: 'liv-power-ladder',
+      name: 'Rear Uppercut → Lead Hook → Rear Knee → Switch Kick',
+      sequence: ['Rear Uppercut', 'Lead Hook', 'Rear Knee', 'Switch Kick'],
+      category: 'Power Ladder',
+      description: 'Climb from hands to knees to kicks without losing power output.',
+    },
+    {
+      id: 'liv-low-high-finish',
+      name: 'Outside Low Kick → Cross → Head Kick',
+      sequence: ['Outside Low Kick', 'Cross', 'Head Kick'],
+      category: 'Low-High Finish',
+      description: 'Chop the base, punch the guard, then take the head off the centerline.',
+    },
+    {
+      id: 'liv-clinch-drive',
+      name: 'Clinch Entry → Rear Knee → Horizontal Elbow → Clinch Break',
+      sequence: ['Clinch Entry', 'Rear Knee', 'Horizontal Elbow', 'Clinch Break'],
+      category: 'Clinch Power',
+      description: 'Secure posture, drive knees, and exit with a slicing elbow.',
+    },
   ];
 
   const techniqueLibraryData = [
@@ -307,6 +370,7 @@ if (trainingLab) {
     { id: 'rear-hook', name: 'Rear Hook', category: 'Hands', description: 'Power hook from the back side.' },
     { id: 'lead-uppercut', name: 'Lead Uppercut', category: 'Hands', description: 'Rise up the centerline.' },
     { id: 'rear-uppercut', name: 'Rear Uppercut', category: 'Hands', description: 'Explosive vertical shot.' },
+    { id: 'southpaw-jab', name: 'Southpaw Jab', category: 'Hands', description: 'Right-hand lead flick from a southpaw stance.' },
     { id: 'lead-body-hook', name: 'Lead Body Hook', category: 'Body Shots', description: 'Dig to the liver with bend in the knees.' },
     { id: 'rear-body-hook', name: 'Rear Body Hook', category: 'Body Shots', description: 'Whip to the ribs off a pivot.' },
     { id: 'lead-teep', name: 'Lead Teep', category: 'Kicks', description: 'Long guard teep to manage range.' },
@@ -316,6 +380,7 @@ if (trainingLab) {
     { id: 'inside-low-kick', name: 'Inside Low Kick', category: 'Kicks', description: 'Lift the leg and slice the inner thigh.' },
     { id: 'head-kick', name: 'Head Kick', category: 'Kicks', description: 'High roundhouse to the temple.' },
     { id: 'question-mark-kick', name: 'Question Mark Kick', category: 'Kicks', description: 'Disguise low then whip high in one motion.' },
+    { id: 'left-body-kick', name: 'Left Body Kick', category: 'Kicks', description: 'Southpaw rear kick wrapping into the ribs.' },
     { id: 'lead-knee', name: 'Lead Knee', category: 'Knees', description: 'Step up and spear through the core.' },
     { id: 'rear-knee', name: 'Rear Knee', category: 'Knees', description: 'Drive hips forward off the rear leg.' },
     { id: 'switch-knee', name: 'Switch Knee', category: 'Knees', description: 'Hop-switch and lance the knee straight through.' },
@@ -327,15 +392,17 @@ if (trainingLab) {
     { id: 'double-jab', name: 'Double Jab', category: 'Hands', description: 'Pop rapid 1-1s to disrupt rhythm and claim range.' },
     { id: 'lead-shovel-hook', name: 'Lead Shovel Hook', category: 'Body Shots', description: '45° lead hand rip that splits guard and digs the body.' },
     { id: 'pivot-step', name: 'Pivot Step', category: 'Footwork', description: 'Spin around the lead foot to create sharp angles.' },
+    { id: 'tempo-step', name: 'Tempo Step', category: 'Footwork', description: 'Step in and out with measured cadence to manage pace.' },
     { id: 'foot-sweep', name: 'Foot Sweep', category: 'Footwork', description: 'Hook and guide their base leg off-line.' },
     { id: 'long-guard', name: 'Long Guard', category: 'Defense', description: 'Frame and shield to absorb strikes.' },
     { id: 'check-kick', name: 'Check Kick', category: 'Defense', description: 'Lift the shin to block low kicks.' },
     { id: 'slip-roll', name: 'Slip Roll', category: 'Defense', description: 'Slip inside and roll under the hook.' },
     { id: 'clinch-entry', name: 'Clinch Entry', category: 'Clinch', description: 'Secure inside position with posture.' },
     { id: 'clinch-break', name: 'Clinch Break', category: 'Clinch', description: 'Frame off and exit safely.' },
+    { id: 'breath-reset', name: 'Breath Reset', category: 'Recovery', description: 'Slow nasal inhale with extended exhale to drop tension.' },
   ];
 
-  const styleLibraryData = [
+  const baseStyleLibraryData = [
     {
       id: 'muhammad-ali',
       name: 'Muhammad Ali',
@@ -401,6 +468,54 @@ if (trainingLab) {
       ],
     },
     {
+      id: 'coach-ploy',
+      name: 'Coach Ploy',
+      discipline: 'Southpaw Savant',
+      focus: 'Angles & Clinch Knees',
+      headline: 'Control the pocket from the left side.',
+      summary:
+        'Layer southpaw jabs with pivots, frame off the guard, and crash into knees before opponents reclaim balance.',
+      combos: ['ploy-angle-kick-finish', 'ploy-frame-elbow', 'ploy-clinch-knee'],
+      techniques: ['southpaw-jab', 'pivot-step', 'left-body-kick', 'rear-knee'],
+      coaching: [
+        'Snap the southpaw jab to draw their guard high, then pivot before they can reset their feet.',
+        'Frame with the long guard to freeze them before stepping through with slicing elbows.',
+        'Finish exchanges by clinching up and feeding your rear knee through the center line.',
+      ],
+    },
+    {
+      id: 'coach-marcus',
+      name: 'Coach Marcus',
+      discipline: 'Performance Breathwork',
+      focus: 'Tempo & Recovery',
+      headline: 'Own the pace with intentional breathing.',
+      summary:
+        'Alternate sharp teeps with structured breathing resets so every combination ends with calm shoulders and clear focus.',
+      combos: ['marcus-breath-flow', 'marcus-shield-return', 'marcus-slow-burn'],
+      techniques: ['lead-teep', 'rear-teep', 'breath-reset', 'long-guard', 'tempo-step'],
+      coaching: [
+        'Keep inhales through the nose and extend the exhale through each strike to stay relaxed.',
+        'After framing with the long guard, drop the shoulders before sending the cross back down the middle.',
+        'Use the tempo step to reset stance and heart rate so every burst starts from balance.',
+      ],
+    },
+    {
+      id: 'coach-liv',
+      name: 'Coach Liv',
+      discipline: 'Hybrid Strength',
+      focus: 'Power Output & Drive',
+      headline: 'Build fight-ending power from the floor up.',
+      summary:
+        'Blend explosive uppercuts, low kicks, and knees to keep the engine revving while reinforcing strong positional frames.',
+      combos: ['liv-power-ladder', 'liv-low-high-finish', 'liv-clinch-drive'],
+      techniques: ['rear-uppercut', 'lead-hook', 'rear-knee', 'switch-kick', 'tempo-step'],
+      coaching: [
+        'Sit into your hips before the uppercut so the kinetic chain fires through every strike.',
+        'Chop low then rip high without telegraphing—stay rooted through the floor.',
+        'When you clinch, lock posture and drive the knee upward before ripping the elbow on exit.',
+      ],
+    },
+    {
       id: 'vasiliy-lomachenko',
       name: 'Vasiliy Lomachenko',
       discipline: 'Matrix Boxing',
@@ -434,6 +549,11 @@ if (trainingLab) {
     },
   ];
 
+  const CUSTOM_STYLE_STORAGE_KEY = 'bagwork-buddy-custom-styles';
+  const supportsStorage = typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
+  let customStyleLibraryData = supportsStorage ? loadCustomStyles() : [];
+  let styleLibraryData = [...baseStyleLibraryData, ...customStyleLibraryData];
+
   const combinationMap = new Map(combinationLibraryData.map((combo) => [combo.id, combo]));
   const techniqueMap = new Map(techniqueLibraryData.map((tech) => [tech.id, tech]));
 
@@ -446,6 +566,12 @@ if (trainingLab) {
   const advancedContent = document.getElementById('advancedContent');
   const styleInstructions = document.getElementById('styleInstructions');
   const defaultStyleInstructions = styleInstructions?.innerHTML ?? '';
+  const customStyleToggle = document.getElementById('customStyleToggle');
+  const customStyleForm = document.getElementById('customStyleForm');
+  const customStyleMessage = document.getElementById('customStyleMessage');
+  const customComboList = document.getElementById('customComboList');
+  const customTechniqueList = document.getElementById('customTechniqueList');
+  const customStyleUseSelection = document.getElementById('customStyleUseSelection');
   const comboCount = document.getElementById('comboCount');
   const techniqueCount = document.getElementById('techniqueCount');
   const startButton = document.getElementById('startRound');
@@ -483,8 +609,9 @@ if (trainingLab) {
 
   renderLibraryList(combinationLibraryData, comboContainer, 'combo');
   renderLibraryList(techniqueLibraryData, techniqueContainer, 'technique');
-  renderStyleLibrary(styleLibraryData);
-  populateStyleSelect(styleLibraryData);
+  renderCustomBuilderList(combinationLibraryData, customComboList, 'combo');
+  renderCustomBuilderList(techniqueLibraryData, customTechniqueList, 'technique');
+  refreshStyleLibrary({ maintainSelection: false });
   updateSelectionSummary();
   initializeTimerDisplay();
 
@@ -512,6 +639,9 @@ if (trainingLab) {
   styleSelect?.addEventListener('change', handleStyleSelectChange);
   clearStyleButton?.addEventListener('click', () => clearStyleState({ preserveSelections: false }));
   advancedToggle?.addEventListener('click', toggleAdvancedSettings);
+  customStyleToggle?.addEventListener('click', toggleCustomStyleForm);
+  customStyleForm?.addEventListener('submit', handleCustomStyleSubmit);
+  customStyleUseSelection?.addEventListener('click', useCurrentSelectionsForCustomStyle);
 
   roundLengthSelect?.addEventListener('change', () => {
     const minutes = clampToRange(roundLengthSelect.value, 1, 5);
@@ -532,7 +662,7 @@ if (trainingLab) {
     restLengthInput.value = String(restSeconds);
   });
 
-  function renderStyleLibrary(data) {
+  function renderStyleLibrary(data, activeId = '') {
     if (!styleContainer) return;
     styleContainer.innerHTML = '';
     const fragment = document.createDocumentFragment();
@@ -541,8 +671,13 @@ if (trainingLab) {
       button.type = 'button';
       button.className = 'style-card';
       button.dataset.styleId = style.id;
+      button.dataset.styleSource = style.isCustom ? 'custom' : 'preset';
       button.setAttribute('role', 'listitem');
-      button.setAttribute('aria-pressed', 'false');
+      const isActive = activeId && style.id === activeId;
+      button.setAttribute('aria-pressed', String(isActive));
+      if (isActive) {
+        button.classList.add('active');
+      }
 
       const topRow = document.createElement('div');
       topRow.className = 'style-card-top';
@@ -552,10 +687,22 @@ if (trainingLab) {
       name.textContent = style.name;
       topRow.appendChild(name);
 
+      const tagCluster = document.createElement('div');
+      tagCluster.className = 'style-card-tags';
+
       const focusPill = document.createElement('span');
       focusPill.className = 'style-pill';
-      focusPill.textContent = style.focus;
-      topRow.appendChild(focusPill);
+      focusPill.textContent = style.focus ?? 'Signature Mix';
+      tagCluster.appendChild(focusPill);
+
+      if (style.isCustom) {
+        const customBadge = document.createElement('span');
+        customBadge.className = 'style-custom-badge';
+        customBadge.textContent = 'Custom';
+        tagCluster.appendChild(customBadge);
+      }
+
+      topRow.appendChild(tagCluster);
 
       button.appendChild(topRow);
 
@@ -576,14 +723,214 @@ if (trainingLab) {
     styleContainer.appendChild(fragment);
   }
 
-  function populateStyleSelect(data) {
+  function populateStyleSelect(data, activeId = '') {
     if (!styleSelect) return;
+    const previous = activeId || styleSelect.value;
+    styleSelect.querySelectorAll('option:not([value=""])').forEach((option) => option.remove());
     data.forEach((style) => {
       const option = document.createElement('option');
       option.value = style.id;
-      option.textContent = `${style.name} • ${style.focus}`;
+      const focusText = style.focus ? ` • ${style.focus}` : '';
+      const customSuffix = style.isCustom ? ' (Custom)' : '';
+      option.textContent = `${style.name}${focusText}${customSuffix}`;
       styleSelect.appendChild(option);
     });
+    const hasPrevious = previous && data.some((style) => style.id === previous);
+    styleSelect.value = hasPrevious ? previous : '';
+  }
+
+  function refreshStyleLibrary({ maintainSelection = true } = {}) {
+    const activeId = maintainSelection ? styleSelect?.value ?? '' : '';
+    styleLibraryData = [...baseStyleLibraryData, ...customStyleLibraryData];
+    renderStyleLibrary(styleLibraryData, activeId);
+    populateStyleSelect(styleLibraryData, activeId);
+    if (maintainSelection && activeId && !styleLibraryData.some((style) => style.id === activeId)) {
+      clearStyleState({ preserveSelections: true });
+    }
+  }
+
+  function renderCustomBuilderList(data, container, type) {
+    if (!container) return;
+    container.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+    data.forEach((item) => {
+      const label = document.createElement('label');
+      label.className = 'builder-item';
+
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.value = item.id;
+      input.name = type === 'combo' ? 'customCombos' : 'customTechniques';
+      label.appendChild(input);
+
+      const textWrapper = document.createElement('div');
+      textWrapper.className = 'builder-item-body';
+
+      const title = document.createElement('span');
+      title.className = 'builder-title';
+      title.textContent = item.name;
+      textWrapper.appendChild(title);
+
+      const meta = document.createElement('span');
+      meta.className = 'builder-meta';
+      meta.textContent = `${type === 'combo' ? 'Combo' : 'Technique'} • ${item.category}`;
+      textWrapper.appendChild(meta);
+
+      if (item.description) {
+        const detail = document.createElement('span');
+        detail.className = 'builder-description';
+        detail.textContent = item.description;
+        textWrapper.appendChild(detail);
+      }
+
+      label.appendChild(textWrapper);
+      fragment.appendChild(label);
+    });
+    container.appendChild(fragment);
+  }
+
+  function toggleCustomStyleForm() {
+    if (!customStyleToggle || !customStyleForm) return;
+    const expanded = customStyleToggle.getAttribute('aria-expanded') === 'true';
+    customStyleToggle.setAttribute('aria-expanded', String(!expanded));
+    customStyleForm.hidden = expanded;
+    if (!expanded) {
+      showCustomStyleMessage('', false);
+    }
+  }
+
+  function handleCustomStyleSubmit(event) {
+    event.preventDefault();
+    if (!customStyleForm) return;
+
+    const formData = new FormData(customStyleForm);
+    const name = String(formData.get('customStyleName') ?? '').trim();
+    const discipline = String(formData.get('customStyleDiscipline') ?? '').trim();
+    const focus = String(formData.get('customStyleFocus') ?? '').trim();
+    const headline = String(formData.get('customStyleHeadline') ?? '').trim();
+    const summary = String(formData.get('customStyleSummary') ?? '').trim();
+    const coachingRaw = String(formData.get('customStyleCoaching') ?? '');
+    const combos = getCheckedValues(customComboList);
+    const techniques = getCheckedValues(customTechniqueList);
+
+    if (!name) {
+      showCustomStyleMessage('Give your style a name before saving.', true);
+      return;
+    }
+
+    if (combos.length === 0 && techniques.length === 0) {
+      showCustomStyleMessage('Select at least one combination or technique to store with the style.', true);
+      return;
+    }
+
+    const coaching = coachingRaw
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0);
+
+    const newStyle = {
+      id: createUniqueStyleId(name),
+      name,
+      discipline: discipline || 'Custom Blend',
+      focus: focus || 'Personal Mix',
+      headline: headline || 'Your personalized round blueprint.',
+      summary:
+        summary ||
+        'Hand-picked moves saved from your builder so you can reload this flow in a single tap.',
+      combos,
+      techniques,
+      coaching,
+      isCustom: true,
+    };
+
+    customStyleLibraryData.push(newStyle);
+    persistCustomStyles();
+    refreshStyleLibrary({ maintainSelection: false });
+    applyStyle(newStyle);
+    resetCustomStyleForm();
+    showCustomStyleMessage(`Saved ${name} to your signature library.`, false);
+  }
+
+  function useCurrentSelectionsForCustomStyle() {
+    const comboSelections = getCurrentSelectionIds(comboContainer);
+    const techniqueSelections = getCurrentSelectionIds(techniqueContainer);
+    syncBuilderCheckboxes(customComboList, comboSelections);
+    syncBuilderCheckboxes(customTechniqueList, techniqueSelections);
+    showCustomStyleMessage(
+      `Loaded ${comboSelections.length} combos and ${techniqueSelections.length} techniques from your current selection.`,
+      false,
+    );
+  }
+
+  function getCheckedValues(container) {
+    if (!container) return [];
+    return Array.from(container.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+
+  function getCurrentSelectionIds(container) {
+    if (!container) return [];
+    return Array.from(container.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value);
+  }
+
+  function syncBuilderCheckboxes(container, ids) {
+    if (!container) return;
+    const idSet = new Set(ids);
+    container.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+      input.checked = idSet.has(input.value);
+    });
+  }
+
+  function resetCustomStyleForm() {
+    customStyleForm?.reset();
+    syncBuilderCheckboxes(customComboList, []);
+    syncBuilderCheckboxes(customTechniqueList, []);
+  }
+
+  function showCustomStyleMessage(message, isError) {
+    if (!customStyleMessage) return;
+    customStyleMessage.textContent = message;
+    customStyleMessage.classList.toggle('is-error', Boolean(isError));
+  }
+
+  function createUniqueStyleId(name) {
+    const base = slugifyStyleName(name);
+    let candidate = base;
+    let counter = 2;
+    while (styleLibraryData.some((style) => style.id === candidate)) {
+      candidate = `${base}-${counter++}`;
+    }
+    return candidate;
+  }
+
+  function slugifyStyleName(value) {
+    const base = value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    return base || `custom-style-${Date.now()}`;
+  }
+
+  function persistCustomStyles() {
+    if (!supportsStorage) return;
+    try {
+      const payload = customStyleLibraryData.map(({ isCustom, ...style }) => style);
+      window.localStorage.setItem(CUSTOM_STYLE_STORAGE_KEY, JSON.stringify(payload));
+    } catch (error) {
+      console.warn('Unable to save custom styles', error);
+    }
+  }
+
+  function loadCustomStyles() {
+    if (!supportsStorage) return [];
+    try {
+      const raw = window.localStorage.getItem(CUSTOM_STYLE_STORAGE_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [];
+      return parsed
+        .filter((entry) => entry && typeof entry.id === 'string')
+        .map((entry) => ({ ...entry, isCustom: true }));
+    } catch (error) {
+      console.warn('Unable to load custom styles', error);
+      return [];
+    }
   }
 
   function applyStyle(style) {
@@ -673,7 +1020,7 @@ if (trainingLab) {
       clearStyleState({ preserveSelections: true });
       return;
     }
-    const style = styleLibraryData.find((entry) => entry.id === selectedId);
+    const style = findStyleById(selectedId);
     if (style) {
       applyStyle(style);
     }
@@ -694,6 +1041,10 @@ if (trainingLab) {
     if (styleInstructions) {
       styleInstructions.innerHTML = defaultStyleInstructions;
     }
+  }
+
+  function findStyleById(id) {
+    return styleLibraryData.find((entry) => entry.id === id);
   }
 
   function toggleAdvancedSettings() {
