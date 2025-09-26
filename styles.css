@@ -1392,8 +1392,13 @@ main {
 .custom-style-builder {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 0;
   margin-top: 3.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 12, 18, 0.68);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
 }
 
 .custom-style-toggle {
@@ -1404,8 +1409,9 @@ main {
   gap: 1.6rem;
   width: 100%;
   padding: 1.6rem 2rem;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: linear-gradient(135deg, rgba(246, 168, 33, 0.18), rgba(255, 255, 255, 0.04));
   color: inherit;
   text-align: left;
@@ -1416,7 +1422,6 @@ main {
 
 .custom-style-toggle:hover,
 .custom-style-toggle:focus-visible {
-  border-color: rgba(246, 168, 33, 0.6);
   background: linear-gradient(135deg, rgba(246, 168, 33, 0.32), rgba(255, 255, 255, 0.08));
   box-shadow: 0 16px 32px rgba(246, 168, 33, 0.12);
 }
@@ -1477,6 +1482,11 @@ main {
   border-color: rgba(246, 168, 33, 0.5);
 }
 
+.custom-style-toggle.is-open {
+  background: linear-gradient(135deg, rgba(246, 168, 33, 0.28), rgba(255, 255, 255, 0.12));
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
 .custom-style-toggle.is-open .custom-style-toggle-icon::after {
   transform: rotate(90deg) scaleX(0);
   opacity: 0;
@@ -1486,6 +1496,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
+  padding: 2rem 2rem 2.4rem;
   animation: panel-reveal 0.35s ease;
 }
 
@@ -1493,8 +1504,9 @@ main {
   display: none !important;
 }
 
-.custom-style-builder.is-open .custom-style-toggle {
-  border-color: rgba(246, 168, 33, 0.6);
+.custom-style-builder.is-open {
+  border-color: rgba(246, 168, 33, 0.45);
+  box-shadow: 0 24px 48px rgba(246, 168, 33, 0.12);
 }
 
 @keyframes panel-reveal {
