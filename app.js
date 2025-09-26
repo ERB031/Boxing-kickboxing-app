@@ -440,6 +440,10 @@ if (trainingLab) {
   const comboContainer = document.getElementById('comboLibrary');
   const techniqueContainer = document.getElementById('techniqueLibrary');
   const styleContainer = document.getElementById('styleLibrary');
+  const styleSelect = document.getElementById('styleSelect');
+  const clearStyleButton = document.getElementById('clearStyle');
+  const advancedToggle = document.getElementById('advancedToggle');
+  const advancedContent = document.getElementById('advancedContent');
   const styleInstructions = document.getElementById('styleInstructions');
   const defaultStyleInstructions = styleInstructions?.innerHTML ?? '';
   const comboCount = document.getElementById('comboCount');
@@ -480,6 +484,7 @@ if (trainingLab) {
   renderLibraryList(combinationLibraryData, comboContainer, 'combo');
   renderLibraryList(techniqueLibraryData, techniqueContainer, 'technique');
   renderStyleLibrary(styleLibraryData);
+  populateStyleSelect(styleLibraryData);
   updateSelectionSummary();
   initializeTimerDisplay();
 
@@ -504,6 +509,9 @@ if (trainingLab) {
   resetButton?.addEventListener('click', resetRound);
   nextButton?.addEventListener('click', handleNextCall);
   clearHistoryButton?.addEventListener('click', clearHistory);
+  styleSelect?.addEventListener('change', handleStyleSelectChange);
+  clearStyleButton?.addEventListener('click', () => clearStyleState({ preserveSelections: false }));
+  advancedToggle?.addEventListener('click', toggleAdvancedSettings);
 
   roundLengthSelect?.addEventListener('change', () => {
     const minutes = clampToRange(roundLengthSelect.value, 1, 5);
@@ -568,7 +576,20 @@ if (trainingLab) {
     styleContainer.appendChild(fragment);
   }
 
+  function populateStyleSelect(data) {
+    if (!styleSelect) return;
+    data.forEach((style) => {
+      const option = document.createElement('option');
+      option.value = style.id;
+      option.textContent = `${style.name} • ${style.focus}`;
+      styleSelect.appendChild(option);
+    });
+  }
+
   function applyStyle(style) {
+    if (styleSelect) {
+      styleSelect.value = style.id;
+    }
     if (styleContainer) {
       styleContainer.querySelectorAll('.style-card').forEach((card) => {
         const isActive = card.dataset.styleId === style.id;
@@ -643,6 +664,43 @@ if (trainingLab) {
     focusTag.textContent = style.focus;
     metaRow.append(disciplineTag, focusTag);
     styleInstructions.appendChild(metaRow);
+  }
+
+  function handleStyleSelectChange() {
+    if (!styleSelect) return;
+    const selectedId = styleSelect.value;
+    if (!selectedId) {
+      clearStyleState({ preserveSelections: true });
+      return;
+    }
+    const style = styleLibraryData.find((entry) => entry.id === selectedId);
+    if (style) {
+      applyStyle(style);
+    }
+  }
+
+  function clearStyleState({ preserveSelections } = { preserveSelections: false }) {
+    if (styleSelect) {
+      styleSelect.value = '';
+    }
+    styleContainer?.querySelectorAll('.style-card').forEach((card) => {
+      card.classList.remove('active');
+      card.setAttribute('aria-pressed', 'false');
+    });
+    if (!preserveSelections) {
+      clearSelectionsForStyle();
+    }
+    updateSelectionSummary();
+    if (styleInstructions) {
+      styleInstructions.innerHTML = defaultStyleInstructions;
+    }
+  }
+
+  function toggleAdvancedSettings() {
+    if (!advancedToggle || !advancedContent) return;
+    const expanded = advancedToggle.getAttribute('aria-expanded') === 'true';
+    advancedToggle.setAttribute('aria-expanded', String(!expanded));
+    advancedContent.hidden = expanded;
   }
 
   function buildStyleChipGroup(label, ids, sourceMap) {
@@ -1046,6 +1104,9 @@ if (trainingLab) {
         card.classList.remove('active');
         card.setAttribute('aria-pressed', 'false');
       });
+      if (styleSelect) {
+        styleSelect.value = '';
+      }
       if (styleInstructions) {
         styleInstructions.innerHTML = defaultStyleInstructions;
       }

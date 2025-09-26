@@ -178,6 +178,18 @@
                 <p class="library-description">
                   Pick a legendary striker to auto-load their go-to combinations, supporting techniques, and coaching notes.
                 </p>
+                <div class="style-select" role="group" aria-label="Choose a fighter preset">
+                  <label for="styleSelect">Select a fighter preset</label>
+                  <div class="style-select-controls">
+                    <select id="styleSelect" aria-describedby="styleSelectHelp">
+                      <option value="">Custom mix</option>
+                    </select>
+                    <button type="button" id="clearStyle" class="link-button">Clear preset</button>
+                  </div>
+                  <p id="styleSelectHelp" class="assistive-text">
+                    Load their signature combinations and techniques instantly or stay on a custom selection.
+                  </p>
+                </div>
                 <div class="style-card-grid" id="styleLibrary" role="list" aria-labelledby="styleLibraryLabel"></div>
                 <div class="style-instructions" id="styleInstructions" aria-live="polite">
                   <h4>Load a style to study the blueprint.</h4>
@@ -186,39 +198,47 @@
                   </p>
                 </div>
               </div>
-              <div class="library-section">
-                <div class="library-heading">
-                  <h3 id="comboLibraryLabel">Combination Library</h3>
-                  <div class="library-actions">
-                    <button type="button" class="link-button" data-action="select-all" data-target="combo">
-                      Select all
-                    </button>
-                    <button type="button" class="link-button" data-action="clear" data-target="combo">
-                      Clear
-                    </button>
+              <div class="advanced-settings">
+                <button class="advanced-toggle" id="advancedToggle" type="button" aria-expanded="false" aria-controls="advancedContent">
+                  <span>Advanced settings</span>
+                  <span class="advanced-toggle-icon" aria-hidden="true"></span>
+                </button>
+                <div class="advanced-content" id="advancedContent" hidden>
+                  <div class="library-section">
+                    <div class="library-heading">
+                      <h3 id="comboLibraryLabel">Combination Library</h3>
+                      <div class="library-actions">
+                        <button type="button" class="link-button" data-action="select-all" data-target="combo">
+                          Select all
+                        </button>
+                        <button type="button" class="link-button" data-action="clear" data-target="combo">
+                          Clear
+                        </button>
+                      </div>
+                    </div>
+                    <p class="library-description">
+                      Signature Shot Caller sequences blending hands, kicks, knees, and elbows.
+                    </p>
+                    <div class="library-list" id="comboLibrary" role="group" aria-labelledby="comboLibraryLabel"></div>
+                  </div>
+                  <div class="library-section">
+                    <div class="library-heading">
+                      <h3 id="techLibraryLabel">Technique Library</h3>
+                      <div class="library-actions">
+                        <button type="button" class="link-button" data-action="select-all" data-target="technique">
+                          Select all
+                        </button>
+                        <button type="button" class="link-button" data-action="clear" data-target="technique">
+                          Clear
+                        </button>
+                      </div>
+                    </div>
+                    <p class="library-description">
+                      Mix in single strikes, defensive moves, or clinch work to sharpen specific skills.
+                    </p>
+                    <div class="library-list" id="techniqueLibrary" role="group" aria-labelledby="techLibraryLabel"></div>
                   </div>
                 </div>
-                <p class="library-description">
-                  Signature Shot Caller sequences blending hands, kicks, knees, and elbows.
-                </p>
-                <div class="library-list" id="comboLibrary" role="group" aria-labelledby="comboLibraryLabel"></div>
-              </div>
-              <div class="library-section">
-                <div class="library-heading">
-                  <h3 id="techLibraryLabel">Technique Library</h3>
-                  <div class="library-actions">
-                    <button type="button" class="link-button" data-action="select-all" data-target="technique">
-                      Select all
-                    </button>
-                    <button type="button" class="link-button" data-action="clear" data-target="technique">
-                      Clear
-                    </button>
-                  </div>
-                </div>
-                <p class="library-description">
-                  Mix in single strikes, defensive moves, or clinch work to sharpen specific skills.
-                </p>
-                <div class="library-list" id="techniqueLibrary" role="group" aria-labelledby="techLibraryLabel"></div>
               </div>
             </div>
           </div>
