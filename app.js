@@ -221,6 +221,83 @@ if (trainingLab) {
       category: 'Advanced',
       description: 'Set up flair offense after straight shots.',
     },
+    {
+      id: 'double-jab-cross-pivot',
+      name: 'Double Jab → Cross → Pivot Step',
+      sequence: ['Double Jab', 'Cross', 'Pivot Step'],
+      category: 'Footwork',
+      description: 'Float like Ali—sting, finish, and angle off the line.',
+    },
+    {
+      id: 'peekaboo-slip-shovel-hook-cross',
+      name: 'Slip → Lead Shovel Hook → Cross → Lead Hook',
+      sequence: ['Slip Roll', 'Lead Shovel Hook', 'Cross', 'Lead Hook'],
+      category: 'Peekaboo',
+      description: 'Tyson-style slip inside then rip head and body.',
+    },
+    {
+      id: 'peekaboo-duck-uppercut-hook-body',
+      name: 'Slip → Rear Uppercut → Lead Hook → Lead Body Hook',
+      sequence: ['Slip Roll', 'Rear Uppercut', 'Lead Hook', 'Lead Body Hook'],
+      category: 'Power',
+      description: 'Change levels and explode through the guard.',
+    },
+    {
+      id: 'buakaw-teep-lowkick-switchknee',
+      name: 'Lead Teep → Outside Low Kick → Switch Knee',
+      sequence: ['Lead Teep', 'Outside Low Kick', 'Switch Knee'],
+      category: 'Muay Thai Power',
+      description: 'Buakaw rhythm—teep, chop the leg, then spear the knee.',
+    },
+    {
+      id: 'buakaw-clinch-elbow-knee',
+      name: 'Buakaw Clinch Smash',
+      sequence: ['Clinch Entry', 'Horizontal Elbow', 'Rear Knee', 'Clinch Break'],
+      category: 'Clinch',
+      description: 'Secure the tie and finish with punishing knees and elbows.',
+    },
+    {
+      id: 'saenchai-teep-sweep-question',
+      name: 'Lead Teep → Foot Sweep → Question Mark Kick',
+      sequence: ['Lead Teep', 'Foot Sweep', 'Question Mark Kick'],
+      category: 'Showmanship',
+      description: 'Saenchai wizardry blending balance breaks with deception.',
+    },
+    {
+      id: 'saenchai-step-elbow-spin',
+      name: 'Pivot Step → Step-In Elbow → Spinning Elbow',
+      sequence: ['Pivot Step', 'Step-In Elbow', 'Spinning Elbow'],
+      category: 'Creativity',
+      description: 'Angle off then slice through with flowing elbows.',
+    },
+    {
+      id: 'lomachenko-double-jab-angle-cross',
+      name: 'Double Jab → Pivot Step → Cross → Lead Hook',
+      sequence: ['Double Jab', 'Pivot Step', 'Cross', 'Lead Hook'],
+      category: 'Angles',
+      description: 'Southpaw Loma step to the outside before finishing.',
+    },
+    {
+      id: 'lomachenko-roll-body-head',
+      name: 'Jab → Slip Roll → Rear Uppercut → Pivot Step → Lead Hook',
+      sequence: ['Jab', 'Slip Roll', 'Rear Uppercut', 'Pivot Step', 'Lead Hook'],
+      category: 'Rhythm',
+      description: 'Layer level changes with constant exits off the center.',
+    },
+    {
+      id: 'joanna-volume-flow',
+      name: 'Jab → Cross → Lead Hook → Rear Teep → Switch Kick',
+      sequence: ['Jab', 'Cross', 'Lead Hook', 'Rear Teep', 'Switch Kick'],
+      category: 'Volume',
+      description: 'Jedrzejczyk pace—mix relentless hands with kicking flow.',
+    },
+    {
+      id: 'joanna-clinch-barrage',
+      name: 'Joanna Clinch Barrage',
+      sequence: ['Clinch Entry', 'Horizontal Elbow', 'Rear Knee', 'Clinch Break'],
+      category: 'Clinch Volume',
+      description: 'Chain short elbows and knees before resetting distance.',
+    },
   ];
 
   const techniqueLibraryData = [
@@ -238,13 +315,19 @@ if (trainingLab) {
     { id: 'outside-low-kick', name: 'Outside Low Kick', category: 'Kicks', description: 'Chop the calf with shin.' },
     { id: 'inside-low-kick', name: 'Inside Low Kick', category: 'Kicks', description: 'Lift the leg and slice the inner thigh.' },
     { id: 'head-kick', name: 'Head Kick', category: 'Kicks', description: 'High roundhouse to the temple.' },
+    { id: 'question-mark-kick', name: 'Question Mark Kick', category: 'Kicks', description: 'Disguise low then whip high in one motion.' },
     { id: 'lead-knee', name: 'Lead Knee', category: 'Knees', description: 'Step up and spear through the core.' },
     { id: 'rear-knee', name: 'Rear Knee', category: 'Knees', description: 'Drive hips forward off the rear leg.' },
+    { id: 'switch-knee', name: 'Switch Knee', category: 'Knees', description: 'Hop-switch and lance the knee straight through.' },
     { id: 'horizontal-elbow', name: 'Horizontal Elbow', category: 'Elbows', description: 'Slash across with forearm parallel to floor.' },
     { id: 'up-elbow', name: 'Up Elbow', category: 'Elbows', description: 'Rip vertically through the guard.' },
     { id: 'downward-elbow', name: 'Downward Elbow', category: 'Elbows', description: 'Drop the elbow over the brow.' },
     { id: 'spinning-elbow', name: 'Spinning Elbow', category: 'Elbows', description: 'Turn through and land the point of the elbow.' },
     { id: 'superman-punch', name: 'Superman Punch', category: 'Hands', description: 'Explosive airborne straight punch.' },
+    { id: 'double-jab', name: 'Double Jab', category: 'Hands', description: 'Pop rapid 1-1s to disrupt rhythm and claim range.' },
+    { id: 'lead-shovel-hook', name: 'Lead Shovel Hook', category: 'Body Shots', description: '45° lead hand rip that splits guard and digs the body.' },
+    { id: 'pivot-step', name: 'Pivot Step', category: 'Footwork', description: 'Spin around the lead foot to create sharp angles.' },
+    { id: 'foot-sweep', name: 'Foot Sweep', category: 'Footwork', description: 'Hook and guide their base leg off-line.' },
     { id: 'long-guard', name: 'Long Guard', category: 'Defense', description: 'Frame and shield to absorb strikes.' },
     { id: 'check-kick', name: 'Check Kick', category: 'Defense', description: 'Lift the shin to block low kicks.' },
     { id: 'slip-roll', name: 'Slip Roll', category: 'Defense', description: 'Slip inside and roll under the hook.' },
@@ -252,11 +335,113 @@ if (trainingLab) {
     { id: 'clinch-break', name: 'Clinch Break', category: 'Clinch', description: 'Frame off and exit safely.' },
   ];
 
+  const styleLibraryData = [
+    {
+      id: 'muhammad-ali',
+      name: 'Muhammad Ali',
+      discipline: 'Heavyweight Boxing',
+      focus: 'Footwork & Feints',
+      headline: 'Float outside with fast doubles then pivot off.',
+      summary:
+        'Stay light on the feet, set rhythm with rapid jabs, and disappear off the line before a counter can chase you.',
+      combos: ['double-jab-cross-pivot', 'jab-cross-roll-cross'],
+      techniques: ['double-jab', 'pivot-step', 'long-guard'],
+      coaching: [
+        'Glide on the balls of your feet and keep the shoulders relaxed so the jab stays effortless.',
+        'Snap the double jab to blind their vision before stinging with the cross.',
+        'Pivot immediately after the finish so you are scoring while they swing at air.',
+      ],
+    },
+    {
+      id: 'mike-tyson',
+      name: 'Mike Tyson',
+      discipline: 'Peekaboo Boxing',
+      focus: 'Slip & Rip Power',
+      headline: 'Explode from a tight shell with ripping hooks.',
+      summary:
+        'Live in the pocket with head movement, sitting low in the legs so you can spring upward with crushing power.',
+      combos: ['peekaboo-slip-shovel-hook-cross', 'peekaboo-duck-uppercut-hook-body'],
+      techniques: ['lead-shovel-hook', 'lead-body-hook', 'slip-roll'],
+      coaching: [
+        'Slip before you punch so momentum is already loaded into the hips.',
+        'Transfer weight hip-to-hip and keep elbows tight as you rip hooks upstairs and downstairs.',
+        'Finish combinations with another slip or pivot to stay a step ahead of the return.',
+      ],
+    },
+    {
+      id: 'buakaw-banchamek',
+      name: 'Buakaw Banchamek',
+      discipline: 'Muay Thai Powerhouse',
+      focus: 'Teep • Low Kick • Knees',
+      headline: 'Own the center with teeps, chops, and punishing knees.',
+      summary:
+        'Control range with a stiff teep, batter their base with low kicks, then crash into the clinch to finish with knees.',
+      combos: ['buakaw-teep-lowkick-switchknee', 'jab-cross-right-body-kick', 'buakaw-clinch-elbow-knee'],
+      techniques: ['lead-teep', 'outside-low-kick', 'switch-knee', 'horizontal-elbow'],
+      coaching: [
+        'Post a long guard, stabbing the teep to send opponents backward before they can plant.',
+        'Follow straight punches with low kicks to deaden the lead leg and slow their advance.',
+        'Once they shell, lock the clinch, turn their posture, and drive the knee straight through the core.',
+      ],
+    },
+    {
+      id: 'saenchai',
+      name: 'Saenchai',
+      discipline: 'Muay Thai Showman',
+      focus: 'Balance Traps & Creativity',
+      headline: 'Play with rhythm using sweeps and spinning elbows.',
+      summary:
+        'Disrupt balance with playful teeps and sweeps, then dazzle with spins that arrive from impossible angles.',
+      combos: ['saenchai-teep-sweep-question', 'saenchai-step-elbow-spin', 'lead-teep-cross-left-hook-low-kick'],
+      techniques: ['foot-sweep', 'question-mark-kick', 'pivot-step', 'spinning-elbow'],
+      coaching: [
+        'Stay bouncing on the lead leg so you can hop into teeps or step-around sweeps at any moment.',
+        'Sell the question mark kick with a low-line feint before whipping high to the temple.',
+        'Use pivots into step-in elbows to keep opponents biting on every fainted direction change.',
+      ],
+    },
+    {
+      id: 'vasiliy-lomachenko',
+      name: 'Vasiliy Lomachenko',
+      discipline: 'Matrix Boxing',
+      focus: 'Angles & Volume',
+      headline: 'Turn the corner after every touch.',
+      summary:
+        'Touch in bunches, exit off-center, and reappear on blind sides before the guard can reset.',
+      combos: ['lomachenko-double-jab-angle-cross', 'lomachenko-roll-body-head', 'double-jab-cross-pivot'],
+      techniques: ['double-jab', 'pivot-step', 'slip-roll', 'lead-hook'],
+      coaching: [
+        'Keep punches relaxed so you can immediately flow into the next angle change.',
+        'Use the pivot step after the double jab to show up on their flank with a clean line.',
+        'Blend head and body touches while your feet never stay planted in front.',
+      ],
+    },
+    {
+      id: 'joanna-jedrzejczyk',
+      name: 'Joanna Jędrzejczyk',
+      discipline: 'Striking Queen',
+      focus: 'Relentless Pace & Clinch Strikes',
+      headline: 'Drown opponents in layered volume.',
+      summary:
+        'Pepper with long combinations, finish with kicks, and punish inside the clinch before exiting clean.',
+      combos: ['joanna-volume-flow', 'jab-cross-switch-kick', 'joanna-clinch-barrage'],
+      techniques: ['rear-teep', 'switch-kick', 'horizontal-elbow', 'switch-knee'],
+      coaching: [
+        'Keep your stance active and elbows stacked so punches can chain without breaks.',
+        'Seal combinations with a kick to create distance before the counter comes back.',
+        'Frame the collar tie in the clinch and fire rapid knees before snapping out to range.',
+      ],
+    },
+  ];
+
   const combinationMap = new Map(combinationLibraryData.map((combo) => [combo.id, combo]));
   const techniqueMap = new Map(techniqueLibraryData.map((tech) => [tech.id, tech]));
 
   const comboContainer = document.getElementById('comboLibrary');
   const techniqueContainer = document.getElementById('techniqueLibrary');
+  const styleContainer = document.getElementById('styleLibrary');
+  const styleInstructions = document.getElementById('styleInstructions');
+  const defaultStyleInstructions = styleInstructions?.innerHTML ?? '';
   const comboCount = document.getElementById('comboCount');
   const techniqueCount = document.getElementById('techniqueCount');
   const startButton = document.getElementById('startRound');
@@ -294,6 +479,7 @@ if (trainingLab) {
 
   renderLibraryList(combinationLibraryData, comboContainer, 'combo');
   renderLibraryList(techniqueLibraryData, techniqueContainer, 'technique');
+  renderStyleLibrary(styleLibraryData);
   updateSelectionSummary();
   initializeTimerDisplay();
 
@@ -337,6 +523,167 @@ if (trainingLab) {
     const restSeconds = clampToRange(restLengthInput.value, 0, 180);
     restLengthInput.value = String(restSeconds);
   });
+
+  function renderStyleLibrary(data) {
+    if (!styleContainer) return;
+    styleContainer.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+    data.forEach((style) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'style-card';
+      button.dataset.styleId = style.id;
+      button.setAttribute('role', 'listitem');
+      button.setAttribute('aria-pressed', 'false');
+
+      const topRow = document.createElement('div');
+      topRow.className = 'style-card-top';
+
+      const name = document.createElement('span');
+      name.className = 'style-name';
+      name.textContent = style.name;
+      topRow.appendChild(name);
+
+      const focusPill = document.createElement('span');
+      focusPill.className = 'style-pill';
+      focusPill.textContent = style.focus;
+      topRow.appendChild(focusPill);
+
+      button.appendChild(topRow);
+
+      const discipline = document.createElement('span');
+      discipline.className = 'style-meta';
+      discipline.textContent = style.discipline;
+      button.appendChild(discipline);
+
+      const headline = document.createElement('p');
+      headline.className = 'style-headline';
+      headline.textContent = style.headline;
+      button.appendChild(headline);
+
+      button.addEventListener('click', () => applyStyle(style));
+
+      fragment.appendChild(button);
+    });
+    styleContainer.appendChild(fragment);
+  }
+
+  function applyStyle(style) {
+    if (styleContainer) {
+      styleContainer.querySelectorAll('.style-card').forEach((card) => {
+        const isActive = card.dataset.styleId === style.id;
+        card.classList.toggle('active', isActive);
+        card.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    clearSelectionsForStyle();
+
+    style.combos.forEach((comboId) => {
+      const input = comboContainer?.querySelector(`input[value="${comboId}"]`);
+      if (input) {
+        input.checked = true;
+      }
+    });
+
+    style.techniques.forEach((techId) => {
+      const input = techniqueContainer?.querySelector(`input[value="${techId}"]`);
+      if (input) {
+        input.checked = true;
+      }
+    });
+
+    updateSelectionSummary();
+    updateStyleInstructions(style);
+    callDisplay?.classList.remove('is-warning');
+  }
+
+  function updateStyleInstructions(style) {
+    if (!styleInstructions) return;
+
+    styleInstructions.innerHTML = '';
+
+    const title = document.createElement('h4');
+    title.textContent = `${style.name} Playbook`;
+    styleInstructions.appendChild(title);
+
+    const summary = document.createElement('p');
+    summary.textContent = style.summary;
+    styleInstructions.appendChild(summary);
+
+    if (Array.isArray(style.coaching) && style.coaching.length > 0) {
+      const cornerHeading = document.createElement('p');
+      cornerHeading.className = 'style-subheading';
+      cornerHeading.textContent = 'Corner notes';
+      styleInstructions.appendChild(cornerHeading);
+
+      const list = document.createElement('ul');
+      list.className = 'style-coaching-list';
+      style.coaching.forEach((cue) => {
+        const li = document.createElement('li');
+        li.textContent = cue;
+        list.appendChild(li);
+      });
+      styleInstructions.appendChild(list);
+    }
+
+    const selectionGroups = document.createElement('div');
+    selectionGroups.className = 'style-selection-groups';
+    selectionGroups.appendChild(buildStyleChipGroup('Loaded combinations', style.combos, combinationMap));
+    selectionGroups.appendChild(buildStyleChipGroup('Loaded techniques', style.techniques, techniqueMap));
+    styleInstructions.appendChild(selectionGroups);
+
+    const metaRow = document.createElement('div');
+    metaRow.className = 'style-meta-row';
+    const disciplineTag = document.createElement('span');
+    disciplineTag.className = 'style-tag';
+    disciplineTag.textContent = style.discipline;
+    const focusTag = document.createElement('span');
+    focusTag.className = 'style-tag';
+    focusTag.textContent = style.focus;
+    metaRow.append(disciplineTag, focusTag);
+    styleInstructions.appendChild(metaRow);
+  }
+
+  function buildStyleChipGroup(label, ids, sourceMap) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'style-chip-section';
+
+    const heading = document.createElement('span');
+    heading.className = 'style-selection-title';
+    heading.textContent = label;
+    wrapper.appendChild(heading);
+
+    const chipRow = document.createElement('div');
+    chipRow.className = 'style-chip-group';
+    ids.forEach((id) => {
+      const item = sourceMap.get(id);
+      if (!item) return;
+      const chip = document.createElement('span');
+      chip.className = 'style-chip';
+      chip.textContent = item.name;
+      chipRow.appendChild(chip);
+    });
+
+    if (!chipRow.childNodes.length) {
+      const empty = document.createElement('span');
+      empty.className = 'style-chip empty';
+      empty.textContent = 'None loaded';
+      chipRow.appendChild(empty);
+    }
+
+    wrapper.appendChild(chipRow);
+    return wrapper;
+  }
+
+  function clearSelectionsForStyle() {
+    comboContainer?.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+      input.checked = false;
+    });
+    techniqueContainer?.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+      input.checked = false;
+    });
+  }
 
   function renderLibraryList(data, container, type) {
     if (!container) return;
@@ -694,6 +1041,14 @@ if (trainingLab) {
     }
     if ((comboSelected + techniqueSelected) > 0) {
       callDisplay?.classList.remove('is-warning');
+    } else {
+      styleContainer?.querySelectorAll('.style-card').forEach((card) => {
+        card.classList.remove('active');
+        card.setAttribute('aria-pressed', 'false');
+      });
+      if (styleInstructions) {
+        styleInstructions.innerHTML = defaultStyleInstructions;
+      }
     }
   }
 

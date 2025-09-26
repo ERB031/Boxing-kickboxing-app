@@ -23,3 +23,5 @@ Then visit [http://localhost:4173](http://localhost:4173).
 - Download section with tablet mockup and progress visualization
 - Auto-playing testimonial carousel with manual controls
 - Dark, polished visual system channeling the Equinox+ aesthetic
+- Custom Training Lab with selectable combinations, techniques, and smart round pacing
+- Signature style libraries for legendary fighters with auto-loaded drills and coaching notes
