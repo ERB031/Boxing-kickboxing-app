@@ -197,63 +197,88 @@
                     Choose a boxer or nak muay above and we will preselect their signature work plus guided focus cues for your next round.
                   </p>
                 </div>
-                <div class="custom-style-builder">
-                  <form id="customStyleForm" class="custom-style-form">
-                    <div class="custom-style-grid">
-                      <div class="field">
-                        <label for="customStyleName">Style name</label>
-                        <input type="text" id="customStyleName" name="customStyleName" required />
-                      </div>
-                      <div class="field">
-                        <label for="customStyleDiscipline">Discipline / vibe</label>
-                        <input type="text" id="customStyleDiscipline" name="customStyleDiscipline" placeholder="Hybrid Striking" />
-                      </div>
-                      <div class="field">
-                        <label for="customStyleFocus">Focus</label>
-                        <input type="text" id="customStyleFocus" name="customStyleFocus" placeholder="Tempo control" />
-                      </div>
-                      <div class="field">
-                        <label for="customStyleHeadline">Quick headline</label>
-                        <input
-                          type="text"
-                          id="customStyleHeadline"
-                          name="customStyleHeadline"
-                          placeholder="Describe the feel of the round"
-                        />
-                      </div>
-                      <div class="field field-span">
-                        <label for="customStyleSummary">Summary</label>
-                        <textarea id="customStyleSummary" name="customStyleSummary" rows="3" placeholder="What should the athlete focus on?"></textarea>
-                      </div>
-                      <div class="field field-span">
-                        <label for="customStyleCoaching">Coaching cues (one per line)</label>
-                        <textarea
-                          id="customStyleCoaching"
-                          name="customStyleCoaching"
-                          rows="3"
-                          placeholder="Breathe through the nose before firing.&#10;Keep the stance springy after each kick."
-                        ></textarea>
-                      </div>
+                <div class="custom-style-builder" id="customStyleBuilder">
+                  <button
+                    type="button"
+                    class="custom-style-toggle"
+                    id="customStyleToggle"
+                    aria-expanded="false"
+                    aria-controls="customStylePanel"
+                  >
+                    <div class="custom-style-toggle-copy">
+                      <span class="toggle-title">Add a signature style</span>
+                      <span class="toggle-subtitle">Design your own fighter blueprint</span>
                     </div>
-                    <p class="builder-hint">
-                      Pick which moves should load with this style. You can also pull from your current selections in the libraries below.
-                    </p>
-                    <div class="builder-lists">
-                      <fieldset class="builder-fieldset">
-                        <legend>Combinations</legend>
-                        <div class="builder-list" id="customComboList"></div>
-                      </fieldset>
-                      <fieldset class="builder-fieldset">
-                        <legend>Techniques</legend>
-                        <div class="builder-list" id="customTechniqueList"></div>
-                      </fieldset>
-                    </div>
-                    <div class="builder-actions">
-                      <button type="button" class="link-button" id="customStyleUseSelection">Use current selections</button>
-                      <button type="submit" class="btn primary">Save style</button>
-                    </div>
-                  </form>
-                  <p class="builder-status" id="customStyleMessage" role="status" aria-live="polite"></p>
+                    <span class="custom-style-toggle-icon" aria-hidden="true"></span>
+                  </button>
+                  <div class="custom-style-panel" id="customStylePanel" hidden>
+                    <form id="customStyleForm" class="custom-style-form">
+                      <div class="custom-style-grid">
+                        <div class="field">
+                          <label for="customStyleName">Style name</label>
+                          <input type="text" id="customStyleName" name="customStyleName" required />
+                        </div>
+                        <div class="field">
+                          <label for="customStyleDiscipline">Discipline / vibe</label>
+                          <input
+                            type="text"
+                            id="customStyleDiscipline"
+                            name="customStyleDiscipline"
+                            placeholder="Hybrid Striking"
+                          />
+                        </div>
+                        <div class="field">
+                          <label for="customStyleFocus">Focus</label>
+                          <input type="text" id="customStyleFocus" name="customStyleFocus" placeholder="Tempo control" />
+                        </div>
+                        <div class="field">
+                          <label for="customStyleHeadline">Quick headline</label>
+                          <input
+                            type="text"
+                            id="customStyleHeadline"
+                            name="customStyleHeadline"
+                            placeholder="Describe the feel of the round"
+                          />
+                        </div>
+                        <div class="field field-span">
+                          <label for="customStyleSummary">Summary</label>
+                          <textarea
+                            id="customStyleSummary"
+                            name="customStyleSummary"
+                            rows="3"
+                            placeholder="What should the athlete focus on?"
+                          ></textarea>
+                        </div>
+                        <div class="field field-span">
+                          <label for="customStyleCoaching">Coaching cues (one per line)</label>
+                          <textarea
+                            id="customStyleCoaching"
+                            name="customStyleCoaching"
+                            rows="3"
+                            placeholder="Breathe through the nose before firing.&#10;Keep the stance springy after each kick."
+                          ></textarea>
+                        </div>
+                      </div>
+                      <p class="builder-hint">
+                        Pick which moves should load with this style. You can also pull from your current selections in the libraries below.
+                      </p>
+                      <div class="builder-lists">
+                        <fieldset class="builder-fieldset">
+                          <legend>Combinations</legend>
+                          <div class="builder-list" id="customComboList"></div>
+                        </fieldset>
+                        <fieldset class="builder-fieldset">
+                          <legend>Techniques</legend>
+                          <div class="builder-list" id="customTechniqueList"></div>
+                        </fieldset>
+                      </div>
+                      <div class="builder-actions">
+                        <button type="button" class="link-button" id="customStyleUseSelection">Use current selections</button>
+                        <button type="submit" class="btn primary">Save style</button>
+                      </div>
+                    </form>
+                    <p class="builder-status" id="customStyleMessage" role="status" aria-live="polite"></p>
+                  </div>
                 </div>
               </div>
               <div class="advanced-settings">

@@ -566,6 +566,9 @@ if (trainingLab) {
   const advancedContent = document.getElementById('advancedContent');
   const styleInstructions = document.getElementById('styleInstructions');
   const defaultStyleInstructions = styleInstructions?.innerHTML ?? '';
+  const customStyleBuilder = document.getElementById('customStyleBuilder');
+  const customStyleToggle = document.getElementById('customStyleToggle');
+  const customStylePanel = document.getElementById('customStylePanel');
   const customStyleForm = document.getElementById('customStyleForm');
   const customStyleMessage = document.getElementById('customStyleMessage');
   const customComboList = document.getElementById('customComboList');
@@ -638,6 +641,7 @@ if (trainingLab) {
   styleSelect?.addEventListener('change', handleStyleSelectChange);
   clearStyleButton?.addEventListener('click', () => clearStyleState({ preserveSelections: false }));
   advancedToggle?.addEventListener('click', toggleAdvancedSettings);
+  customStyleToggle?.addEventListener('click', () => toggleCustomStylePanel());
   customStyleForm?.addEventListener('submit', handleCustomStyleSubmit);
   customStyleUseSelection?.addEventListener('click', useCurrentSelectionsForCustomStyle);
 
@@ -882,6 +886,9 @@ if (trainingLab) {
     if (!customStyleMessage) return;
     customStyleMessage.textContent = message;
     customStyleMessage.classList.toggle('is-error', Boolean(isError));
+    if (message && customStyleToggle) {
+      toggleCustomStylePanel(true);
+    }
   }
 
   function createUniqueStyleId(name) {
@@ -1044,6 +1051,17 @@ if (trainingLab) {
     const expanded = advancedToggle.getAttribute('aria-expanded') === 'true';
     advancedToggle.setAttribute('aria-expanded', String(!expanded));
     advancedContent.hidden = expanded;
+  }
+
+  function toggleCustomStylePanel(forceOpen) {
+    if (!customStyleToggle || !customStylePanel) return;
+    const expanded = customStyleToggle.getAttribute('aria-expanded') === 'true';
+    const nextState =
+      typeof forceOpen === 'boolean' ? forceOpen : !expanded;
+    customStyleToggle.setAttribute('aria-expanded', String(nextState));
+    customStyleToggle.classList.toggle('is-open', nextState);
+    customStylePanel.hidden = !nextState;
+    customStyleBuilder?.classList.toggle('is-open', nextState);
   }
 
   function buildStyleChipGroup(label, ids, sourceMap) {
