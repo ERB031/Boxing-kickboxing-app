@@ -566,7 +566,6 @@ if (trainingLab) {
   const advancedContent = document.getElementById('advancedContent');
   const styleInstructions = document.getElementById('styleInstructions');
   const defaultStyleInstructions = styleInstructions?.innerHTML ?? '';
-  const customStyleToggle = document.getElementById('customStyleToggle');
   const customStyleForm = document.getElementById('customStyleForm');
   const customStyleMessage = document.getElementById('customStyleMessage');
   const customComboList = document.getElementById('customComboList');
@@ -639,9 +638,12 @@ if (trainingLab) {
   styleSelect?.addEventListener('change', handleStyleSelectChange);
   clearStyleButton?.addEventListener('click', () => clearStyleState({ preserveSelections: false }));
   advancedToggle?.addEventListener('click', toggleAdvancedSettings);
-  customStyleToggle?.addEventListener('click', toggleCustomStyleForm);
   customStyleForm?.addEventListener('submit', handleCustomStyleSubmit);
   customStyleUseSelection?.addEventListener('click', useCurrentSelectionsForCustomStyle);
+
+  if (customStyleMessage) {
+    showCustomStyleMessage('', false);
+  }
 
   roundLengthSelect?.addEventListener('change', () => {
     const minutes = clampToRange(roundLengthSelect.value, 1, 5);
@@ -787,16 +789,6 @@ if (trainingLab) {
       fragment.appendChild(label);
     });
     container.appendChild(fragment);
-  }
-
-  function toggleCustomStyleForm() {
-    if (!customStyleToggle || !customStyleForm) return;
-    const expanded = customStyleToggle.getAttribute('aria-expanded') === 'true';
-    customStyleToggle.setAttribute('aria-expanded', String(!expanded));
-    customStyleForm.hidden = expanded;
-    if (!expanded) {
-      showCustomStyleMessage('', false);
-    }
   }
 
   function handleCustomStyleSubmit(event) {
