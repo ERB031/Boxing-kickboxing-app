@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bagwork Buddy App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header" id="top">
+        <nav class="nav">
+          <a href="#top" class="logo">Bagwork Buddy</a>
+          <button class="nav-toggle" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-links">
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#coaches">Coaches</a></li>
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="#download">Download</a></li>
+          </ul>
+          <a class="nav-cta" href="#download">Join Now</a>
+        </nav>
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow">Muay Thai & Functional Training</div>
+            <h1>Train like a champion. Recover like a pro.</h1>
+            <p>
+              The Bagwork Buddy app fuses striking, conditioning, and
+              recovery into one elevated experience. Stream on-demand classes,
+              book live sessions, and track your fight-ready progress from
+              anywhere.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#download">Start Free Trial</a>
+              <a class="btn ghost" href="#programs">Explore Programs</a>
+            </div>
+            <dl class="hero-stats">
+              <div>
+                <dt>60+</dt>
+                <dd>On-demand combinations</dd>
+              </div>
+              <div>
+                <dt>5+</dt>
+                <dd>Elite coaches worldwide</dd>
+              </div>
+              <div>
+                <dt>4.9★</dt>
+                <dd>Member satisfaction</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="hero-media" aria-hidden="true">
+            <div class="phone-frame">
+              <div class="status-bar"></div>
+              <div class="screen">
+                <div class="screen-card">
+                  <span class="tag">Live now</span>
+                  <h3>Southpaw Striking Lab</h3>
+                  <p>Coach Ploy • Intermediate • 45 min</p>
+                </div>
+                <div class="screen-card">
+                  <span class="tag recovery">Recovery</span>
+                  <h3>Ice Bath Breathwork</h3>
+                  <p>Coach Marcus • Restore • 15 min</p>
+                </div>
+                <div class="screen-card">
+                  <span class="tag">Conditioning</span>
+                  <h3>Heavy Bag Burn</h3>
+                  <p>Coach Malik • Power • 30 min</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </header>
+      <main>
+        <section class="section training-lab" id="training">
+          <div class="section-header">
+            <span class="eyebrow">Training Lab</span>
+            <h2>Build your custom round.</h2>
+            <p>
+              Choose signature Bagwork Buddy combinations or single techniques
+              and let the app pace your round with audible cues and a polished, ringside-inspired interface.
+            </p>
+          </div>
+          <div class="training-grid">
+            <div class="round-console">
+              <div class="round-status">
+                <div class="phase-indicator" id="roundPhase">Ready</div>
+                <div class="timer-display" id="timerDisplay" aria-live="polite">03:00</div>
+              </div>
+              <div class="call-display" aria-live="assertive">
+                <div class="call-sequence" id="activeCall">
+                  Select signature styles and press start.
+                </div>
+                <div class="call-tags" id="activeTags"></div>
+              </div>
+              <form class="round-settings" id="roundSettings">
+                <div class="field">
+                  <label for="roundLength">Round length</label>
+                  <select id="roundLength" name="roundLength">
+                    <option value="1">1 minute</option>
+                    <option value="2">2 minutes</option>
+                    <option value="3" selected>3 minutes</option>
+                    <option value="4">4 minutes</option>
+                    <option value="5">5 minutes</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="callRate">Calls per minute</label>
+                  <input
+                    type="number"
+                    id="callRate"
+                    name="callRate"
+                    min="4"
+                    max="30"
+                    step="1"
+                    value="10"
+                  />
+                  <p class="field-hint">How many cues you want announced each minute.</p>
+                </div>
+                <div class="field">
+                  <label for="restLength">Rest (seconds)</label>
+                  <input
+                    type="number"
+                    id="restLength"
+                    name="restLength"
+                    min="0"
+                    max="180"
+                    step="5"
+                    value="45"
+                  />
+                </div>
+                <div class="field checkbox-field">
+                  <input type="checkbox" id="allowRepeats" name="allowRepeats" checked />
+                  <label for="allowRepeats">Allow repeated calls</label>
+                </div>
+              </form>
+              <div class="round-controls">
+                <button class="btn primary" type="button" id="startRound">Start Round</button>
+                <button class="btn ghost" type="button" id="pauseRound" disabled>Pause</button>
+                <button class="btn ghost" type="button" id="resetRound" disabled>Reset</button>
+                <button class="btn ghost" type="button" id="nextCall" disabled>Next Call</button>
+              </div>
+              <div class="selection-summary">
+                <div>
+                  <strong id="comboCount">0</strong>
+                  <span>Combos loaded</span>
+                </div>
+                <div>
+                  <strong id="techniqueCount">0</strong>
+                  <span>Techniques loaded</span>
+                </div>
+              </div>
+              <div class="call-history">
+                <div class="history-header">
+                  <h3>Round log</h3>
+                  <button type="button" class="link-button" id="clearHistory">Clear</button>
+                </div>
+                <ol id="callHistory" class="history-list" aria-live="polite"></ol>
+              </div>
+            </div>
+            <div class="library-pane">
+              <div class="library-section style-library">
+                <div class="library-heading">
+                  <h3 id="styleLibraryLabel">Signature Style Libraries</h3>
+                </div>
+                <p class="library-description">
+                  Pick a legendary striker to auto-load their go-to combinations, supporting techniques, and coaching notes.
+                </p>
+                <p class="library-hint">
+                  Tap multiple styles to blend their blueprints. We'll stack their moves together for the next round.
+                </p>
+                <div class="style-actions-row">
+                  <button type="button" id="clearStyles" class="link-button">Clear all styles</button>
+                </div>
+                <div class="style-grid-wrapper">
+                  <div
+                    class="style-card-grid"
+                    id="styleLibrary"
+                    role="list"
+                    aria-labelledby="styleLibraryLabel"
+                  ></div>
+                </div>
+                <div class="style-instructions" id="styleInstructions" aria-live="polite">
+                  <h4>Load a style to study the blueprint.</h4>
+                  <p>
+                    Choose a boxer above and we will preselect their signature work plus guided focus cues for your next round.
+                  </p>
+                </div>
+                <div class="custom-style-builder" id="customStyleBuilder">
+                  <button
+                    type="button"
+                    class="custom-style-toggle"
+                    id="customStyleToggle"
+                    aria-expanded="false"
+                    aria-controls="customStylePanel"
+                  >
+                    <div class="custom-style-toggle-copy">
+                      <span class="toggle-title">Add a signature style</span>
+                      <span class="toggle-subtitle">Design your own fighter blueprint</span>
+                    </div>
+                    <span class="custom-style-toggle-icon" aria-hidden="true"></span>
+                  </button>
+                  <div class="custom-style-panel" id="customStylePanel" hidden>
+                    <form id="customStyleForm" class="custom-style-form">
+                      <div class="custom-style-grid">
+                        <div class="field">
+                          <label for="customStyleName">Style name</label>
+                          <input type="text" id="customStyleName" name="customStyleName" required />
+                        </div>
+                        <div class="field">
+                          <label for="customStyleDiscipline">Discipline / vibe</label>
+                          <input
+                            type="text"
+                            id="customStyleDiscipline"
+                            name="customStyleDiscipline"
+                            placeholder="Hybrid Striking"
+                          />
+                        </div>
+                        <div class="field">
+                          <label for="customStyleFocus">Focus</label>
+                          <input type="text" id="customStyleFocus" name="customStyleFocus" placeholder="Tempo control" />
+                        </div>
+                        <div class="field">
+                          <label for="customStyleHeadline">Quick headline</label>
+                          <input
+                            type="text"
+                            id="customStyleHeadline"
+                            name="customStyleHeadline"
+                            placeholder="Describe the feel of the round"
+                          />
+                        </div>
+                        <div class="field field-span">
+                          <label for="customStyleSummary">Summary</label>
+                          <textarea
+                            id="customStyleSummary"
+                            name="customStyleSummary"
+                            rows="3"
+                            placeholder="What should the athlete focus on?"
+                          ></textarea>
+                        </div>
+                        <div class="field field-span">
+                          <label for="customStyleCoaching">Coaching cues (one per line)</label>
+                          <textarea
+                            id="customStyleCoaching"
+                            name="customStyleCoaching"
+                            rows="3"
+                            placeholder="Breathe through the nose before firing.&#10;Keep the stance springy after each kick."
+                          ></textarea>
+                        </div>
+                      </div>
+                      <p class="builder-hint">
+                        Pick which moves should load with this style. You can also pull from the styles you have active above.
+                      </p>
+                      <div class="builder-lists">
+                        <fieldset class="builder-fieldset">
+                          <legend>Combinations</legend>
+                          <div class="builder-list" id="customComboList"></div>
+                        </fieldset>
+                        <fieldset class="builder-fieldset">
+                          <legend>Techniques</legend>
+                          <div class="builder-list" id="customTechniqueList"></div>
+                        </fieldset>
+                      </div>
+                      <div class="builder-actions">
+                        <button type="button" class="link-button" id="customStyleUseSelection">Use active styles</button>
+                        <button type="submit" class="btn primary">Save style</button>
+                      </div>
+                    </form>
+                    <p class="builder-status" id="customStyleMessage" role="status" aria-live="polite"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section metrics" id="programs">
+          <div class="section-header">
+            <span class="eyebrow">App Highlights</span>
+            <h2>Sleek, immersive training sessions built for fighters.</h2>
+            <p>
+              Crafted with a modern training club aesthetic, the Bagwork Buddy
+              app keeps the focus on what matters: intelligent programming,
+              cinematic production, and next-level results.
+            </p>
+          </div>
+          <div class="metrics-grid">
+            <article class="metric">
+              <h3>Personalized Pathways</h3>
+              <p>
+                Adaptive programs progress with you—whether you are sharpening
+                fundamentals or prepping for the ring.
+              </p>
+            </article>
+            <article class="metric">
+              <h3>Hybrid Class Library</h3>
+              <p>
+                Muay Thai technique, strength conditioning, recovery protocols,
+                and mobility flows curated weekly.
+              </p>
+            </article>
+            <article class="metric">
+              <h3>Performance Analytics</h3>
+              <p>
+                Sync wearables, track rounds, and visualize pace and power with
+                real-time insights.
+              </p>
+            </article>
+            <article class="metric">
+              <h3>Community Corners</h3>
+              <p>
+                Join sparring labs, share highlights, and get accountability
+                from a global striking collective.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section program-rail">
+          <div class="section-header">
+            <span class="eyebrow">Featured Collections</span>
+            <h2>Curated experiences for every fight camp.</h2>
+          </div>
+          <div class="program-cards">
+            <article class="program-card">
+              <div class="program-visual gradient-one"></div>
+              <div class="program-body">
+                <h3>Fight Camp 8-Week</h3>
+                <p>
+                  Phase-based conditioning with drills, sparring strategy, and
+                  taper weeks designed by pro fighters.
+                </p>
+                <ul>
+                  <li>6 days per week</li>
+                  <li>Progressive overload</li>
+                  <li>Corner coach notes</li>
+                </ul>
+              </div>
+            </article>
+            <article class="program-card">
+              <div class="program-visual gradient-two"></div>
+              <div class="program-body">
+                <h3>Technique Foundations</h3>
+                <p>
+                  Slow it down with cinematic breakdowns, footwork puzzles, and
+                  pad flows for every stance.
+                </p>
+                <ul>
+                  <li>Multi-angle replays</li>
+                  <li>Southpaw & orthodox</li>
+                  <li>Coach feedback portal</li>
+                </ul>
+              </div>
+            </article>
+            <article class="program-card">
+              <div class="program-visual gradient-three"></div>
+              <div class="program-body">
+                <h3>Recovery Rituals</h3>
+                <p>
+                  Contrast therapy, restorative mobility, and breathwork so you
+                  can hit every round fresh.
+                </p>
+                <ul>
+                  <li>Guided ice + sauna</li>
+                  <li>Sleep optimization</li>
+                  <li>Mindfulness soundscapes</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section schedule" id="schedule">
+          <div class="section-header">
+            <span class="eyebrow">Live Studio Schedule</span>
+            <h2>Drop into live energy from Bangkok to Brooklyn.</h2>
+          </div>
+          <div class="schedule-controls" role="tablist">
+            <button class="chip active" data-category="all">All</button>
+            <button class="chip" data-category="muay-thai">Muay Thai</button>
+            <button class="chip" data-category="strength">Strength</button>
+            <button class="chip" data-category="recovery">Recovery</button>
+          </div>
+          <div class="schedule-grid">
+            <article class="schedule-card" data-category="muay-thai">
+              <div>
+                <h3>Elbow Arsenal</h3>
+                <p>Coach Petch • Advanced • 60 min</p>
+              </div>
+              <span class="time">06:00 BKK</span>
+            </article>
+            <article class="schedule-card" data-category="strength">
+              <div>
+                <h3>Lower Body Ignition</h3>
+                <p>Coach Liv • Hybrid Strength • 45 min</p>
+              </div>
+              <span class="time">07:30 NYC</span>
+            </article>
+            <article class="schedule-card" data-category="muay-thai">
+              <div>
+                <h3>Clinch War Room</h3>
+                <p>Coach Dieselnoi • Clinch Tactics • 40 min</p>
+              </div>
+              <span class="time">09:00 BKK</span>
+            </article>
+            <article class="schedule-card" data-category="recovery">
+              <div>
+                <h3>Cold Plunge Breath</h3>
+                <p>Coach Marcus • Nervous System • 20 min</p>
+              </div>
+              <span class="time">11:00 LON</span>
+            </article>
+            <article class="schedule-card" data-category="strength">
+              <div>
+                <h3>Power Endurance Ladder</h3>
+                <p>Coach Nina • Kettlebell • 35 min</p>
+              </div>
+              <span class="time">18:30 NYC</span>
+            </article>
+            <article class="schedule-card" data-category="muay-thai">
+              <div>
+                <h3>Southpaw Playbook</h3>
+                <p>Coach Andre • Southpaw Flow • 30 min</p>
+              </div>
+              <span class="time">20:00 LAX</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="section coaches" id="coaches">
+          <div class="section-header">
+            <span class="eyebrow">Elite Corners</span>
+            <h2>Coaches who have walked the walk.</h2>
+          </div>
+          <div class="coach-grid">
+            <article class="coach-card">
+              <div class="coach-portrait portrait-one"></div>
+              <div class="coach-body">
+                <h3>Coach Ploy</h3>
+                <p>3x Lumpinee Champ • Southpaw Specialist</p>
+                <ul>
+                  <li>Signature: Counter striking IQ</li>
+                  <li>Focus: Ringcraft & timing</li>
+                </ul>
+              </div>
+            </article>
+            <article class="coach-card">
+              <div class="coach-portrait portrait-two"></div>
+              <div class="coach-body">
+                <h3>Coach Marcus</h3>
+                <p>Performance Therapist • Breathwork Guide</p>
+                <ul>
+                  <li>Signature: Cold exposure pairing</li>
+                  <li>Focus: Nervous system mastery</li>
+                </ul>
+              </div>
+            </article>
+            <article class="coach-card">
+              <div class="coach-portrait portrait-three"></div>
+              <div class="coach-body">
+                <h3>Coach Liv</h3>
+                <p>Strength Coach • Combat Conditioning</p>
+                <ul>
+                  <li>Signature: Hybrid power circuits</li>
+                  <li>Focus: Force production</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section membership" id="membership">
+          <div class="section-header">
+            <span class="eyebrow">Memberships</span>
+            <h2>Choose your corner and go all in.</h2>
+          </div>
+          <div class="membership-grid">
+            <article class="plan">
+              <div class="plan-badge">Most Popular</div>
+              <h3>All Access Digital</h3>
+              <p class="price"><span>$29</span>/mo</p>
+              <ul>
+                <li>Unlimited on-demand library</li>
+                <li>Daily live class access</li>
+                <li>Performance analytics dashboard</li>
+                <li>Community sparring labs</li>
+              </ul>
+              <a class="btn primary" href="#download">Start 7-Day Trial</a>
+            </article>
+            <article class="plan">
+              <h3>Hybrid Studio</h3>
+              <p class="price"><span>$79</span>/mo</p>
+              <ul>
+                <li>Everything in Digital</li>
+                <li>Weekly in-person small groups</li>
+                <li>Quarterly skill assessments</li>
+                <li>VIP fight night events</li>
+              </ul>
+              <a class="btn ghost" href="#download">Request Invite</a>
+            </article>
+            <article class="plan">
+              <h3>Pro Corner</h3>
+              <p class="price"><span>$199</span>/mo</p>
+              <ul>
+                <li>Hybrid Studio benefits</li>
+                <li>1:1 coaching + program design</li>
+                <li>Recovery lab access</li>
+                <li>Camp nutrition consults</li>
+              </ul>
+              <a class="btn ghost" href="#download">Talk to a Coach</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="section experience" id="download">
+          <div class="experience-shell">
+            <div class="experience-copy">
+              <span class="eyebrow">Download</span>
+              <h2>The fight studio in your pocket.</h2>
+              <p>
+                Stream cinematic classes, book live sessions, and sync your
+                metrics in a frictionless interface designed for night mode.
+                Works beautifully on iOS, Android, tablet, and web.
+              </p>
+              <div class="store-buttons">
+                <a class="store" href="#">
+                  <span class="icon" aria-hidden="true"></span>
+                  <span>
+                    <small>Download on the</small>
+                    <strong>App Store</strong>
+                  </span>
+                </a>
+                <a class="store" href="#">
+                  <span class="icon" aria-hidden="true">▶</span>
+                  <span>
+                    <small>GET IT ON</small>
+                    <strong>Google Play</strong>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="experience-media">
+              <div class="tablet-frame">
+                <div class="tablet-screen">
+                  <div class="tablet-card">
+                    <h3>Striking Focus</h3>
+                    <p>Rounds logged this week</p>
+                    <div class="progress">
+                      <div class="progress-bar"></div>
+                    </div>
+                    <ul>
+                      <li>Bag Rounds <span>18</span></li>
+                      <li>Pad Rounds <span>12</span></li>
+                      <li>Sparring <span>6</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section testimonials">
+          <div class="section-header">
+            <span class="eyebrow">Community Voices</span>
+            <h2>What Bagwork Buddy members are saying.</h2>
+          </div>
+          <div class="testimonial-carousel" aria-live="polite">
+            <button class="carousel-control prev" aria-label="Previous story">
+              ←
+            </button>
+            <div class="testimonial-track">
+              <article class="testimonial active">
+                <p>
+                  “The production value feels like a premium fight camp.
+                  Drilling combinations with real-time cues has levelled up my
+                  timing fast.”
+                </p>
+                <div class="author">
+                  <span class="avatar">RA</span>
+                  <div>
+                    <strong>Rico A.</strong>
+                    <small>Amateur Middleweight</small>
+                  </div>
+                </div>
+              </article>
+              <article class="testimonial">
+                <p>
+                  “Having breathwork and recovery stacked next to the sparring
+                  schedule keeps my nervous system in check. I’ve never felt so
+                  prepared.”
+                </p>
+                <div class="author">
+                  <span class="avatar">DL</span>
+                  <div>
+                    <strong>Dana L.</strong>
+                    <small>Fight Night Host</small>
+                  </div>
+                </div>
+              </article>
+              <article class="testimonial">
+                <p>
+                  “The data tracking with my wearable gives me true feedback on
+                  power and volume. The community challenges are wild.”
+                </p>
+                <div class="author">
+                  <span class="avatar">KM</span>
+                  <div>
+                    <strong>Kai M.</strong>
+                    <small>Competitive Striker</small>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <button class="carousel-control next" aria-label="Next story">
+              →
+            </button>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <a href="#top" class="logo">Bagwork Buddy</a>
+            <p>
+              Precision striking, intelligent recovery, and community-driven
+              accountability in one beautifully designed app.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="#programs">Programs</a></li>
+              <li><a href="#schedule">Live Schedule</a></li>
+              <li><a href="#coaches">Coaches</a></li>
+              <li><a href="#membership">Membership</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="mailto:team@bagworkbuddy.app">Email</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer-note">© 2025 Bagwork Buddy. All rights reserved.</p>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
